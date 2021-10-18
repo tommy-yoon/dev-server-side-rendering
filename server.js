@@ -1,6 +1,9 @@
 const express = require('express')
 const hbs = require('express-handlebars')
 
+// This is an object is pulling from data.js
+const { data, template } = require('./data')
+
 const server = express()
 module.exports = server
 
@@ -16,9 +19,13 @@ server.use(express.static('public'))
 //   res.send('Hello, World')
 // })
 
+// const template = 'home'
+// const viewData = {
+//   title: 'Gallery',
+//   artist: 'Tommy'
+// }
+
 server.get('/', (req, res) => {
-  const viewData = {
-    title: 'Gallery'
-  }
-  res.render('home.hbs')
+  res.render(template, data)
+  // res.render('home.hbs')
 })
