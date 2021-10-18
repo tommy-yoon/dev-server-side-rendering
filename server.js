@@ -12,6 +12,13 @@ server.set('view engine', 'hbs')
 server.use(express.static('public'))
 
 // Routes
+// server.get('/', (req, res) => {
+//   res.send('Hello, World')
+// })
+
 server.get('/', (req, res) => {
-  res.send('Hello, World')
+  const viewData = {
+    title: 'Gallery'
+  }
+  res.render('home.hbs')
 })
