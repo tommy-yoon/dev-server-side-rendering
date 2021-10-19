@@ -2,7 +2,7 @@ const express = require('express')
 const hbs = require('express-handlebars')
 
 // This is art data from json file
-const art = require('./art.json')
+const arts = require('./art.json')
 
 const server = express()
 module.exports = server
@@ -19,5 +19,30 @@ const template = 'home'
 
 // Routes
 server.get('/', (req, res) => {
-  res.render(template, { arts: art })
+  res.render(template, { arts: arts })
 })
+
+// Artworks route
+server.get('/artworks/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const art = arts.find(art => art.id === id)
+  res.render('artworks', art)
+})
+
+// // URL Params
+// server.get('/frogs/:id', (req, res) => {
+//   const id = Number(req.params.id)
+
+//   const frog = frogData.find(frog => frog.id === id)
+
+//   res.send(frog.name)
+// })
+
+// //POST route
+// server.post('/favFrog', (req, res) => {
+//   const { frogName } = req.body
+
+//   const foundFrog = frogData.find(frog => frog.name === frogName)
+
+//   res.redirect(`/frogs/${foundFrog.id}`)
+// })

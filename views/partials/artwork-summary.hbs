@@ -1,0 +1,11 @@
+<ul>
+{{#each arts}}
+  <li>Artist Name: {{artist.name}}</li>
+	<li>Title: <a href="/artworks/{{id}}">{{id}}: {{title}}</a></li>
+  <li>License Type: <a href="{{license.url}}">{{license.name}}</a></li>
+      
+{{/each}}
+</ul>
+
+
+
