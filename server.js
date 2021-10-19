@@ -28,21 +28,3 @@ server.get('/artworks/:id', (req, res) => {
   const art = arts.find(art => art.id === id)
   res.render('artworks', art)
 })
-
-// // URL Params
-// server.get('/frogs/:id', (req, res) => {
-//   const id = Number(req.params.id)
-
-//   const frog = frogData.find(frog => frog.id === id)
-
-//   res.send(frog.name)
-// })
-
-// //POST route
-// server.post('/favFrog', (req, res) => {
-//   const { frogName } = req.body
-
-//   const foundFrog = frogData.find(frog => frog.name === frogName)
-
-//   res.redirect(`/frogs/${foundFrog.id}`)
-// })
